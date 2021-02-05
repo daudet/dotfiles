@@ -1,7 +1,7 @@
 execute pathogen#infect()
 syntax on
-colorscheme distinguished
 filetype plugin indent on
+colorscheme distinguished
 
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline_powerline_fonts = 1
@@ -12,7 +12,7 @@ set number
 
 " Customize Search hightlight colouring
 set hlsearch
-hi Search ctermfg=DarkYellow ctermbg=LightYellow
+hi Search ctermfg=Black ctermbg=LightYellow
 
 " sane backspace behaviour
 set backspace=indent,eol,start
@@ -20,17 +20,18 @@ set backspace=indent,eol,start
 " Set up sane tab behaviours
 set smartindent
 set expandtab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set textwidth=79
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set textwidth=100
 
 " Let's try some spell-checking
 set spelllang=en_us
 
 " Nice right-margin guide
-set cc=80
-:au BufWinEnter * let w:m1=matchadd('Error', '\%80v.\+', -1)
+set colorcolumn=101
+set cc=101
+:au BufWinEnter * let w:m1=matchadd('Error', '\%101v.\+', -1)
 
 " Split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -46,6 +47,7 @@ set clipboard=unnamed
 
 " Open Nerd Tree with control-n
 map <C-n> :NERDTreeToggle<CR>
+:let g:NERDTreeWinSize=60
 
 " Syntastic Config
 set statusline+=%#warningmsg#
@@ -55,14 +57,14 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
+let g:syntastic_check_on_wq = 0
 
 " Use flake8 for python
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_exec = '/Users/daudet/.pyenv/shims/flake8'
 
 " Set Runtime Path to use FZF installed via Homebrew
-set rtp+=/usr/local/opt/fzf
+set rtp+=/opt/homebrew/opt/fzf
 
 " FZF Grep using Ripgrep
 let rg_cmd='rg --column --line-number --no-heading --color=always '
