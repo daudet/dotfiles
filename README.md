@@ -7,7 +7,6 @@ git submodule update --init --recursive
 #### Updating all plugins (latest)
 git submodule update --recursive --remote
 
-
 #### Install pathogen.vim
 cd ~/.vim/bundle && \
 git clone https://github.com/tpope/vim-sensible.git
